@@ -62,6 +62,7 @@ namespace NetChat
 
             while (isMenu)
             {
+                Console.Title = "NetChat by Snewkovits";
                 Console.Clear();
                 for (int i = 0; i < menuLength; i++)
                 {
@@ -91,7 +92,7 @@ namespace NetChat
                         break;
                     case ConsoleKey.Escape:
                         isMenu = false;
-                        Program.Main();
+                        MainChunk.Main();
                         break;
                 }
             }

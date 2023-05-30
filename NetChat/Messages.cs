@@ -29,6 +29,7 @@ namespace NetChat
 
         public void WriteAllMessages()
         {
+            Console.Title = $"{partner.Username} | Chat";
             Console.Clear();
             List<Message> messages = new List<Message>();
 

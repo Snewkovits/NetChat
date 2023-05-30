@@ -100,7 +100,7 @@ namespace NetChat
                     }
                     reader.Close();
                 }
-                catch (Exception ex)
+                catch
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write($"\nIncorrect password or username!\nERRMSQL01");
@@ -114,10 +114,11 @@ namespace NetChat
             if (user.Username == "N/A" || user.Password == "N/A")
                 Environment.Exit(0);
 
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("\nYou are logged in!");
+            Console.Write("Successfully logged in!");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.ReadKey(true);
+            Thread.Sleep(1000);
 
             return user;
         }

@@ -2,14 +2,12 @@
 
 namespace NetChat
 {
-    internal class Program
+    internal class MainChunk
     {
-        public static OnlineCheck oc;
-
         public static void Main()
         {
             Console.CursorVisible = false;
-            Console.Title = "OnlineChat by Snewkovits";
+            Console.Title = "NetChat by Snewkovits";
 
             Test test = new Test();
             test.Database();

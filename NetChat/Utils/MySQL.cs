@@ -16,7 +16,7 @@ namespace NetChat
         public static string ConnectionString = builder.ConnectionString;
     }
 
-    /*
+/*
       
 
 CREATE DATABASE IF NOT EXISTS `onlinechat` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
@@ -40,5 +40,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 
-     */
+*/
+
 }

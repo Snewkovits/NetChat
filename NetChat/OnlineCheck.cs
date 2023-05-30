@@ -1,10 +1,10 @@
 ﻿using MySqlConnector;
-using System.IO.IsolatedStorage;
 
 namespace NetChat
 {
-    internal class OnlineCheck
+    internal class OnlineCheck  // WIP
     {
+       /*
         User user { get; set; }
 
         public bool isOnline { get; set; }
@@ -30,6 +30,7 @@ namespace NetChat
 
             conn = new MySqlConnection(stringBuilder.ConnectionString);
         }
+
 
         public void Start()
         {
@@ -60,19 +61,9 @@ namespace NetChat
                     Thread.Sleep(1000);
                 }
 
-            }).Start();
+            })
+            { Name = "UserOnlineCheck" }.Start();
         }
-
-        public void OnCloseEvent(object sender, EventArgs e)
-        {
-            cmd = conn.CreateCommand();
-            cmd.CommandText = "UPDATE users SET isonline = @isonline WHERE id = @id";
-            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = user.UserID;
-            cmd.Parameters.Add("@isonline", MySqlDbType.Int32).Value = 0;
-
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
+       */
     }
 }

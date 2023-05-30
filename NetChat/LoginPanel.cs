@@ -1,10 +1,4 @@
 ﻿using MySqlConnector;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NetChat
 {
@@ -12,21 +6,11 @@ namespace NetChat
     {
         MySqlConnection conn;
         MySqlCommand cmd;
-        MySqlConnectionStringBuilder connStringBuilder;
         MySqlDataReader reader;
 
         public User Login()
         {
-            connStringBuilder = new MySqlConnectionStringBuilder() // messages (id, from, to, message, when)
-            {                                                      // users (id, username, password)
-                Server = "localhost",
-                Port = 3306,
-                UserID = "root",
-                Password = "root",
-                Database = "onlinechat"
-            };
-
-            conn = new MySqlConnection(connStringBuilder.ConnectionString);
+            conn = new MySqlConnection(MySQL.ConnectionString);
 
             bool isLogged = false;
             bool enterPressed = false;
@@ -51,9 +35,12 @@ namespace NetChat
                 Console.SetCursorPosition(0, 0);
                 Console.Write("Username:\nPassword:");
                 Console.SetCursorPosition(entryLength, 0);
+                Console.CursorVisible = true;
                 username = Console.ReadLine();
+                Console.CursorVisible = false;
                 Console.SetCursorPosition(entryLength, 1);
 
+                Console.CursorVisible = true;
                 while (!enterPressed)
                 {
                     char key = Console.ReadKey(true).KeyChar;
@@ -72,7 +59,6 @@ namespace NetChat
                             }
                             break;
                         case (char)27:
-                            Program.oc.isOnline = false;
                             Environment.Exit(0);
                             break;
                         default:
@@ -81,6 +67,7 @@ namespace NetChat
                             break;
                     }
                 }
+                Console.CursorVisible = false;
                 user = new User()
                 {
                     Username = username,

@@ -5,7 +5,6 @@ namespace NetChat
     internal class Chats
     {
         MySqlConnection conn;
-        MySqlConnectionStringBuilder stringBuilder;
         MySqlCommand cmd;
         MySqlDataReader reader;
 
@@ -19,16 +18,7 @@ namespace NetChat
 
             isMenu = false;
 
-            stringBuilder = new MySqlConnectionStringBuilder()
-            {
-                Server = "localhost",
-                Port = 3306,
-                UserID = "root",
-                Password = "root",
-                Database = "onlinechat"
-            };
-
-            conn = new MySqlConnection(stringBuilder.ConnectionString);
+            conn = new MySqlConnection(MySQL.ConnectionString);
         }
 
         public void Open()
@@ -97,6 +87,7 @@ namespace NetChat
                         MessagePanel mPanel = new MessagePanel(mainUser, partners[selectedIndex]);
                         Console.Clear();
                         mPanel.WriteAllMessages();
+                        mPanel.Idle();
                         Console.ReadKey(true);
                         break;
                     case ConsoleKey.Escape:

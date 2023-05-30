@@ -1,4 +1,4 @@
-Its a beginner online chat code with MySQL, free for everyone who want to use.
+Its a beginner online chat code with MySQL, free for everyone who want to use. <br>
 Click there for the [SQL code](https://github.com/Snewkovits/NetChat/blob/master/NetChat/Utils/MySQL.cs)
 
 The code working with:

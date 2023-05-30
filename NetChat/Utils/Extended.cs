@@ -9,7 +9,7 @@ namespace NetChat
 {
     static class Extended
     {
-        public static List<Message> SortByTime(this List<Message> messages) // MEG KELL CSINÁLNI A SORTING-OT
+        public static List<Message> SortByTime(this List<Message> messages)
         {
             List<Message> result = new List<Message>();
             IOrderedEnumerable<Message> query = 

@@ -16,12 +16,28 @@ namespace NetChat
             conn = new MySqlConnection(MySQL.ConnectionString);
         }
 
-        public bool Database()
+        public void Database()
         {
-            bool result = true;
-            try { conn.Open(); }
-            catch { result = false; }
-            return result;
+            try 
+            { 
+                conn.Open(); 
+                conn.Close();
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("Connection established!");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Thread.Sleep(1000);
+                Console.Clear();
+            }
+            catch 
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("The program can't connect to the database!\nCheck your internet connection or try to contact with a support!\n\n");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.Write("Press something to exit...");
+                Console.ReadKey(true);
+                Environment.Exit(0);
+            }
         }
     }
 }

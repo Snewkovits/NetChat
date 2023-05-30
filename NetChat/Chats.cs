@@ -88,7 +88,6 @@ namespace NetChat
                         Console.Clear();
                         mPanel.WriteAllMessages();
                         mPanel.Idle();
-                        Console.ReadKey(true);
                         break;
                     case ConsoleKey.Escape:
                         isMenu = false;

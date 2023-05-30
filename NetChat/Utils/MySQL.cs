@@ -6,11 +6,11 @@ namespace NetChat
     {
         public static MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder()
         {
-            Server = "localhost",
+            Server = "mysql.fivemhosting.hu",
             Port = 3306,
-            UserID = "root",
-            Password = "root",
-            Database = "onlinechat"
+            UserID = "u65_G1nwdk4cNP",
+            Password = "RT!HBH=Txnb^atLb2Xe=fcLz",
+            Database = "s65_onlinechat"
         };
 
         public static string ConnectionString = builder.ConnectionString;

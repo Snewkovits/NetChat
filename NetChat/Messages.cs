@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using System.ComponentModel;
 
 namespace NetChat
 {
@@ -112,6 +113,7 @@ namespace NetChat
                     case (char)27:  // ESCAPE
                         isGoing = false;
                         onMessage = false;
+                        WriteAllMessages();
                         Console.CursorVisible = false;
                         break;
                     case (char)8:   // BACKSPACE
@@ -159,13 +161,16 @@ namespace NetChat
 
             new Thread(() =>
             {
-                while (true)
+                while (isIdle)
                 {
                     switch (Console.ReadKey(true).Key)
                     {
                         case ConsoleKey.Enter:
-                            onMessage = true;
-                            StartChat();
+                            if (!onMessage)
+                            {
+                                onMessage = true;
+                                StartChat();
+                            }
                             break;
                         case ConsoleKey.Escape:
                             isIdle = false;

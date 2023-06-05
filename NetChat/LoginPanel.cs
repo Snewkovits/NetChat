@@ -8,6 +8,10 @@ namespace NetChat
         MySqlCommand cmd;
         MySqlDataReader reader;
 
+        /// <summary>
+        /// Start the login sequence
+        /// </summary>
+        /// <returns>The user who logged in</returns>
         public User Login()
         {
             conn = new MySqlConnection(MySQL.ConnectionString);

@@ -12,6 +12,10 @@ namespace NetChat
 
         bool isMenu;
 
+        /// <summary>
+        /// Set everything in Chats class with the user
+        /// </summary>
+        /// <param name="user">The user who use the app</param>
         public Chats(User user)
         {
             mainUser = user;
@@ -21,13 +25,20 @@ namespace NetChat
             conn = new MySqlConnection(MySQL.ConnectionString);
         }
 
+        /// <summary>
+        /// Open the partner list menu.
+        /// </summary>
         public void Open()
         {
             isMenu = true;
 
             Menu(ListAllPeople());
         }
-
+        
+        /// <summary>
+        /// Get the partner list
+        /// </summary>
+        /// <returns>All people who registered.</returns>
         public List<Partner> ListAllPeople()
         {
             Console.Clear();
@@ -55,6 +66,10 @@ namespace NetChat
             return partners;
         }
 
+        /// <summary>
+        /// Simulate a menu in console
+        /// </summary>
+        /// <param name="partners">Partner list</param>
         public void Menu(List<Partner> partners)
         {
             int menuLength = partners.Count;

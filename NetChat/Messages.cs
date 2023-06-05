@@ -135,11 +135,12 @@ namespace NetChat
                         break;
                     case (char)13:  // ENTER
                         cmd = conn.CreateCommand();
-                        cmd.CommandText = "INSERT INTO messages (sender, receiver, message, sended) VALUES (@sender, @receiver, @message, @sended)";
+                        cmd.CommandText = "INSERT INTO messages " +
+                                          "(sender, receiver, message, sended) VALUES " +
+                                          "(@sender, @receiver, @message, CURRENT_TIMESTAMP())";
                         cmd.Parameters.Add("@sender", MySqlDbType.Int32).Value = user.UserID;
                         cmd.Parameters.Add("@receiver", MySqlDbType.Int32).Value = partner.UserID;
                         cmd.Parameters.Add("@message", MySqlDbType.VarChar).Value = message;
-                        cmd.Parameters.Add("@sended", MySqlDbType.DateTime).Value = DateTime.Now;
 
                         conn.Open();
                         cmd.ExecuteNonQuery();

@@ -9,6 +9,8 @@ namespace NetChat
             Console.CursorVisible = false;
             Console.Title = "NetChat by Snewkovits";
 
+            MySQL.SetMySql();
+
             Test test = new Test();
             test.Database();
 

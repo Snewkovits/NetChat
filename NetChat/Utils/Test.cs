@@ -9,7 +9,7 @@ namespace NetChat
 {
     class Test
     {
-        MySqlConnection conn;
+        public MySqlConnection conn;
 
         public Test()
         {
